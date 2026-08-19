@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eduardamanzoli.vercel.app/sitemap.xml
