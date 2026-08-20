@@ -13,7 +13,14 @@
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
   }
-  function rich(s) { return String(s == null ? '' : s); }   // campos que aceitam <em>/<br>
+  /* Texto escrito no painel. Aceita *itálico*, **negrito** e quebras de linha.
+     Tudo é escapado antes, então o conteúdo nunca injeta HTML. */
+  function rich(s) {
+    var t = esc(s);
+    t = t.replace(/\*\*([^*\n]+)\*\*/g, '<b>$1</b>');
+    t = t.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+    return t.replace(/\r?\n/g, '<br>');
+  }
   function el(id) { return document.getElementById(id); }
   function on(x) { return x !== false; }
 

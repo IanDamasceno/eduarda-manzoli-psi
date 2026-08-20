@@ -44,7 +44,7 @@ window.DEFAULT_CONTENT={
   "hero": {
     "ativo": true,
     "eyebrow": "Psicóloga · Psicanálise · CRP 16/11657",
-    "titulo": "Um espaço de <em>escuta</em><br>e elaboração.",
+    "titulo": "Um espaço de *escuta*\ne elaboração.",
     "texto": "Sou Eduarda Manzoli, psicóloga formada pela UFES. Atendo crianças, adolescentes e adultos em uma clínica orientada pela psicanálise. Aqui não se trata de dar respostas prontas, mas de abrir espaço para que as suas próprias apareçam.",
     "btnPrimario": "Agendar atendimento",
     "btnSecundario": "Conhecer minha clínica",
@@ -77,7 +77,7 @@ window.DEFAULT_CONTENT={
   "sobreResumo": {
     "ativo": true,
     "eyebrow": "Sobre mim",
-    "titulo": "Como a pequena sonhadora<br>encontrou a psicologia.",
+    "titulo": "Como a pequena sonhadora\nencontrou a psicologia.",
     "paragrafos": [
       "Me formei em Psicologia pela Universidade Federal do Espírito Santo e desde então trabalho na clínica, orientada pela psicanálise. Atendo adultos, adolescentes e crianças. Acredito que toda clínica com adultos é, também, uma clínica com crianças.",
       "O que ofereço não é um método para consertar você. É um espaço onde o que você diz pode ser levado a sério, inclusive aquilo que você diz sem querer."
@@ -131,7 +131,7 @@ window.DEFAULT_CONTENT={
   "comoFunciona": {
     "ativo": true,
     "eyebrow": "Como funciona",
-    "titulo": "Do primeiro contato<br>ao início da análise",
+    "titulo": "Do primeiro contato\nao início da análise",
     "texto": "Nenhum passo compromete o seguinte. Você pode parar em qualquer um deles.",
     "passos": [
       {
@@ -159,7 +159,7 @@ window.DEFAULT_CONTENT={
   "online": {
     "ativo": true,
     "eyebrow": "Atendimento online",
-    "titulo": "De onde você estiver,<br>com o mesmo enquadre.",
+    "titulo": "De onde você estiver,\ncom o mesmo enquadre.",
     "texto": "Atendo por vídeo em todo o Brasil e para brasileiros fora do país, com o mesmo sigilo, a mesma frequência e o mesmo cuidado do presencial. Para quem prefere o consultório, atendo em Vitória e Vila Velha.",
     "btn1": "Agendar online",
     "btn2": "Ver endereços"
@@ -210,19 +210,19 @@ window.DEFAULT_CONTENT={
   "cta": {
     "ativo": true,
     "eyebrow": "Vamos conversar?",
-    "titulo": "O que você tem dito<br>sobre o seu sofrimento?",
+    "titulo": "O que você tem dito\nsobre o seu sofrimento?",
     "texto": "Me conte um pouco do que está acontecendo. Respondo pessoalmente, e não existe pergunta boba.",
     "botao": "Falar no WhatsApp"
   },
   "rodape": {
-    "descricao": "Espaço de escuta e elaboração para adultos, adolescentes e crianças.<br>Atendimento online e presencial em Vitória e Vila Velha (ES).",
+    "descricao": "Espaço de escuta e elaboração para adultos, adolescentes e crianças.\nAtendimento online e presencial em Vitória e Vila Velha (ES).",
     "tituloNavegar": "Navegar",
     "tituloContato": "Contato",
     "assinatura": "Todos os direitos reservados"
   },
   "paginaSobre": {
     "eyebrow": "Sobre mim",
-    "titulo": "Como a pequena sonhadora<br>encontrou a <em>psicanálise</em>.",
+    "titulo": "Como a pequena sonhadora\nencontrou a *psicanálise*.",
     "subtitulo": "Psicóloga formada pela UFES · CRP 16/11657 · Atendimento a adultos, adolescentes e crianças.",
     "banner": "assets/sobre-banner.jpg",
     "bannerPos": "center 30%",
@@ -250,13 +250,13 @@ window.DEFAULT_CONTENT={
       {
         "h": "Onde atendo",
         "ps": [
-          "<b>Presencial:</b> Vitória e Vila Velha, Espírito Santo.<br><b>Online:</b> para todo o Brasil e para brasileiros fora do país, por vídeo, com o mesmo enquadre e o mesmo sigilo."
+          "**Presencial:** Vitória e Vila Velha, Espírito Santo.\n**Online:** para todo o Brasil e para brasileiros fora do país, por vídeo, com o mesmo enquadre e o mesmo sigilo."
         ]
       },
       {
         "h": "Formação",
         "ps": [
-          "<b>Graduação em Psicologia.</b> Universidade Federal do Espírito Santo (UFES)<br><b>Registro profissional.</b> CRP 16/11657<br><b>Formação continuada em Psicanálise.</b> Supervisão clínica e análise pessoal permanentes",
+          "**Graduação em Psicologia.** Universidade Federal do Espírito Santo (UFES)\n**Registro profissional.** CRP 16/11657\n**Formação continuada em Psicanálise.** Supervisão clínica e análise pessoal permanentes",
           "Análise pessoal e supervisão não são detalhes de currículo: são exigências éticas do ofício. Nenhum analista escuta bem sem ser, ele mesmo, escutado."
         ]
       }
@@ -298,7 +298,7 @@ window.DEFAULT_CONTENT={
     "foto": "assets/contato.jpg"
   },
   "paginaPrivacidade": {
-    "titulo": "Política de Privacidade<br>e Sigilo",
+    "titulo": "Política de Privacidade\ne Sigilo",
     "atualizacao": "Última atualização: agosto de 2026",
     "abertura": "O sigilo profissional é a base do trabalho clínico. Esta página explica como as suas informações são tratadas, tanto no atendimento quanto neste site.",
     "blocos": [
@@ -372,7 +372,7 @@ window.DEFAULT_CONTENT={
         },
         {
           "tipo": "p",
-          "texto": "A pessoa chega e, sem perceber, começa a tratar o analista do jeito como aprendeu a tratar quem importa. Espera aprovação. Teme decepcionar. Se cala no ponto exato em que sempre se calou. E isso não é um problema do processo. Isso <em>é</em> o processo."
+          "texto": "A pessoa chega e, sem perceber, começa a tratar o analista do jeito como aprendeu a tratar quem importa. Espera aprovação. Teme decepcionar. Se cala no ponto exato em que sempre se calou. E isso não é um problema do processo. Isso *é* o processo."
         },
         {
           "tipo": "quote",
