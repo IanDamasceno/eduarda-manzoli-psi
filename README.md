@@ -1,69 +1,78 @@
 # Eduarda Manzoli · Psicóloga e Psicanalista
 
-Site institucional e painel de administração de Eduarda Manzoli, psicóloga formada
-pela UFES (CRP 16/11657). Espaço de escuta e elaboração para adultos, adolescentes
-e crianças, com atendimento online e presencial em Vitória e Vila Velha (ES).
+Site institucional de Eduarda Manzoli, psicóloga formada pela UFES (CRP 16/11657).
+Todo o conteúdo do site é editado pelo painel e guardado no Vercel Blob.
 
-## Estrutura
+## Os dois repositórios
 
-O repositório guarda dois projetos independentes, cada um com seu próprio deploy
-na Vercel. É o mesmo padrão usado na Hágil.
+| Repositório | Projeto Vercel | O que é |
+|---|---|---|
+| `eduarda-manzoli-psi` | eduarda-manzoli-psi | Site público |
+| `eduarda-manzoli-cms` | eduarda-manzoli-admin | Painel de administração |
+
+Os dois são estáticos, sem build, e compartilham o mesmo **Blob store** da Vercel.
+É o Blob que faz o painel e o site conversarem.
+
+## Como o conteúdo circula
 
 ```
-/              site público      -> projeto eduarda-manzoli-psi
-/admin         painel do site    -> projeto eduarda-manzoli-admin
-/assets        imagens do site
-/admin/assets  imagens do painel
+Painel  --PUT /api/content-->   Blob (cms/content.json)  --GET /api/content-->   Site
+Site    --POST /api/mensagens-> Blob (inbox/*.json)      --GET /api/mensagens--> Painel
 ```
 
-Os dois são estáticos e não têm build. Cada um tem seu `vercel.json`.
-No projeto do painel, o `Root Directory` da Vercel precisa ser `admin`.
+O site lê `cms/content.json` a cada carregamento. Se a API estiver fora do ar,
+ele cai no conteúdo embutido em `content-default.js` e continua no ar.
 
-### Site público
+## Variáveis de ambiente
+
+Nos **dois** projetos da Vercel:
+
+| Variável | Onde | Para quê |
+|---|---|---|
+| `BLOB_READ_WRITE_TOKEN` | site e painel | criada automaticamente ao conectar o Blob store |
+| `ADMIN_PASSWORD` | só no painel | senha do primeiro acesso |
+| `SESSION_SECRET` | só no painel | assina o cookie de sessão (texto longo e aleatório) |
+
+No primeiro login o painel converte `ADMIN_PASSWORD` em um hash guardado em
+`cms/auth.json`. A partir daí a senha é trocada dentro do próprio painel,
+em Configurações.
+
+## Arquivos
+
+```
+index.html            casca da página: só o CSS e os pontos de montagem
+app.js                monta todas as seções a partir do conteúdo
+content-default.js    conteúdo de segurança, usado se a API falhar
+api/content.js        GET do conteúdo publicado
+api/mensagens.js      POST do formulário de contato
+assets/               imagens que vieram com o site
+```
+
+## Rotas do site
 
 | Rota | Página |
 |---|---|
 | `#/home` | Início |
 | `#/sobre` | História, formação e onde atende |
 | `#/blog` | Escritos, com filtro por tema e paginação |
-| `#/post` | Leitura de cada texto |
+| `#/post/<id>` | Leitura de cada texto |
 | `#/contato` | Formulário, WhatsApp e locais de atendimento |
 | `#/privacidade` | Política de privacidade e sigilo |
 
-### Painel
+O painel não é acessível a partir do site: não há link para ele em lugar nenhum.
 
-| Rota | Tela |
-|---|---|
-| `/` | Entrada |
-| `#/painel` | Visão geral |
-| `#/paginas` | Páginas fixas do site |
-| `#/blog` | Gestão dos textos |
-| `#/editor` | Editor com SEO |
-| `#/aparencia` | Edição das seções da página inicial |
-| `#/mensagens` | Mensagens recebidas |
-| `#/midia` | Biblioteca de imagens |
-| `#/config` | Dados profissionais e contatos |
+## Como rodar localmente
 
-O painel está marcado como `noindex` e não é acessível a partir do código do site,
-apenas pelo link "Área restrita" no rodapé.
+Não há build, mas as funções em `api/` precisam da Vercel:
 
-## Estado atual
-
-Esta versão é estática. O painel é uma demonstração navegável, para a cliente ver e
-aprovar as telas. Ainda não há banco de dados, autenticação real nem persistência.
-O formulário de contato mostra a confirmação, mas não envia e-mail.
-
-### Próximos passos
-
-1. API e banco de dados, provavelmente em um terceiro projeto (`eduarda-manzoli-api`)
-2. Autenticação real no painel
-3. Publicação de textos a partir do painel
-4. Envio real do formulário de contato
-5. Domínio próprio
+```bash
+npx vercel dev
+```
 
 ## Imagens
 
-Para trocar qualquer imagem, substitua o arquivo em `assets/` mantendo o nome.
+As imagens originais ficam em `assets/`. As que a Eduarda enviar pelo painel
+vão para o Blob e aparecem na biblioteca de Mídia junto com as fixas.
 
 | Arquivo | Onde aparece |
 |---|---|
@@ -75,22 +84,7 @@ Para trocar qualquer imagem, substitua o arquivo em `assets/` mantendo o nome.
 | `cap-*.svg` | Capas dos textos do blog |
 | `og.jpg` | Prévia ao compartilhar o link |
 
-As capas dos textos são ilustrações vetoriais próprias, na mesma linguagem visual
-do restante do site. Cada uma foi desenhada para o tema do texto: círculos que se
-sobrepõem para transferência, ondas concêntricas para escuta, um padrão que se
-repete com uma peça fora de lugar para repetição.
-
-## Como rodar
-
-Não há build. Sirva a pasta e abra no navegador:
-
-```bash
-python3 -m http.server 8000        # site
-python3 -m http.server 8001 -d admin   # painel
-```
-
 ## Tecnologia
 
-HTML, CSS e JavaScript sem dependências. Fontes Playfair Display e Inter.
-Verificado sem estouro horizontal em 9 larguras de tela e com contraste de texto
-dentro do WCAG AA nos dois projetos.
+HTML, CSS e JavaScript sem framework. Fontes Playfair Display e Inter.
+Funções serverless da Vercel em Node, com `@vercel/blob` como única dependência.
