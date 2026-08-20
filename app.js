@@ -19,6 +19,9 @@
     var t = esc(s);
     t = t.replace(/\*\*([^*\n]+)\*\*/g, '<b>$1</b>');
     t = t.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+    /* compatibilidade com textos antigos, que guardavam HTML direto */
+    t = t.replace(/&lt;(\/?)(em|i|b|strong)&gt;/g, '<$1$2>');
+    t = t.replace(/&lt;br\s*\/?&gt;/g, '<br>');
     return t.replace(/\r?\n/g, '<br>');
   }
   function el(id) { return document.getElementById(id); }
