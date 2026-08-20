@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<defs>
+ <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+   <feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer></filter>
+ 
+</defs>
+<rect width="800" height="500" fill="#F2F0EA"/>
+
+<circle cx="320" cy="250" r="185" fill="#3A5CC4" opacity=".55"/>
+<circle cx="490" cy="250" r="185" fill="#2A3F94" opacity=".55"/>
+<circle cx="320" cy="250" r="185" fill="none" stroke="#2A3F94" stroke-width="1.5" opacity=".5"/>
+<circle cx="490" cy="250" r="185" fill="none" stroke="#2A3F94" stroke-width="1.5" opacity=".5"/>
+<rect width="800" height="500" filter="url(#g)" opacity=".55" style="mix-blend-mode:multiply"/>
+</svg>

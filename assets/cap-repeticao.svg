@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<defs>
+ <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+   <feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer></filter>
+ 
+</defs>
+<rect width="800" height="500" fill="#F2F0EA"/>
+<rect x="70" y="95" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="170" y="95" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="270" y="95" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="370" y="95" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="470" y="95" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="570" y="95" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="670" y="95" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="70" y="195" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="170" y="195" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="270" y="195" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="370" y="195" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="470" y="195" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="570" y="195" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="670" y="195" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="70" y="295" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="170" y="295" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="270" y="295" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="370" y="295" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="470" y="295" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="570" y="295" width="62" height="62" fill="#2A3F94" opacity=".78"/><rect x="676" y="316" width="62" height="62" fill="#3A5CC4" transform="rotate(21 707 347)"/>
+<rect width="800" height="500" filter="url(#g)" opacity=".55" style="mix-blend-mode:multiply"/>
+</svg>

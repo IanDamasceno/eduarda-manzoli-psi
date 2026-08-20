@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<defs>
+ <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+   <feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer></filter>
+ 
+</defs>
+<rect width="800" height="500" fill="#D9E6F0"/>
+
+<g stroke="#8FAFC8" stroke-width="1" opacity=".55"><line x1="0" y1="36" x2="800" y2="36"/><line x1="0" y1="72" x2="800" y2="72"/><line x1="0" y1="108" x2="800" y2="108"/><line x1="0" y1="144" x2="800" y2="144"/><line x1="0" y1="180" x2="800" y2="180"/><line x1="0" y1="216" x2="800" y2="216"/><line x1="0" y1="252" x2="800" y2="252"/><line x1="0" y1="288" x2="800" y2="288"/><line x1="0" y1="324" x2="800" y2="324"/><line x1="0" y1="360" x2="800" y2="360"/><line x1="0" y1="396" x2="800" y2="396"/><line x1="0" y1="432" x2="800" y2="432"/><line x1="0" y1="468" x2="800" y2="468"/></g>
+<g transform="translate(400 250) rotate(-14) scale(1.5)">
+ <path d="M-120,-40 L120,0 L-120,40 L-80,0 Z" fill="#2A3F94"/>
+ <path d="M-120,-40 L-80,0 L120,0 Z" fill="#3A5CC4"/>
+</g>
+<path d="M40,420 C220,360 380,470 760,330" fill="none" stroke="#2A3F94" stroke-width="2" stroke-dasharray="9 11" opacity=".65"/>
+<rect width="800" height="500" filter="url(#g)" opacity=".55" style="mix-blend-mode:multiply"/>
+</svg>

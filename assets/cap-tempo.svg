@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<defs>
+ <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+   <feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer></filter>
+ 
+</defs>
+<rect width="800" height="500" fill="#F2F0EA"/>
+<rect x="90" y="80" width="620.0" height="3" fill="#2A3F94" opacity="0.85"/><rect x="90" y="102" width="616.8" height="3" fill="#2A3F94" opacity="0.8049999999999999"/><rect x="90" y="124" width="607.2" height="3" fill="#2A3F94" opacity="0.76"/><rect x="90" y="146" width="591.2" height="3" fill="#2A3F94" opacity="0.715"/><rect x="90" y="168" width="568.8" height="3" fill="#2A3F94" opacity="0.6699999999999999"/><rect x="90" y="190" width="540.0" height="3" fill="#2A3F94" opacity="0.625"/><rect x="90" y="212" width="504.8" height="3" fill="#2A3F94" opacity="0.58"/><rect x="90" y="234" width="463.2" height="3" fill="#2A3F94" opacity="0.5349999999999999"/><rect x="90" y="256" width="415.2" height="3" fill="#2A3F94" opacity="0.49"/><rect x="90" y="278" width="360.8" height="3" fill="#2A3F94" opacity="0.445"/><rect x="90" y="300" width="300.0" height="3" fill="#2A3F94" opacity="0.4"/><rect x="90" y="322" width="232.79999999999995" height="3" fill="#2A3F94" opacity="0.355"/><rect x="90" y="344" width="159.2" height="3" fill="#2A3F94" opacity="0.30999999999999994"/><rect x="90" y="366" width="79.19999999999993" height="3" fill="#2A3F94" opacity="0.265"/><rect x="90" y="388" width="-7.2000000000000455" height="3" fill="#2A3F94" opacity="0.21999999999999997"/><rect x="90" y="410" width="-100.0" height="3" fill="#2A3F94" opacity="0.17500000000000004"/>
+<rect width="800" height="500" filter="url(#g)" opacity=".55" style="mix-blend-mode:multiply"/>
+</svg>

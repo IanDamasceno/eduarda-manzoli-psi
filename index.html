@@ -535,10 +535,8 @@ h1,h2,h3{text-wrap:balance}
 }
 </style>
 </head>
-<body>
 <div class="grain"></div>
 
-<!-- ============ SITE ============ -->
 <div id="s-site" class="screen active">
 
 <header class="hdr" id="hdr">
@@ -810,7 +808,7 @@ h1,h2,h3{text-wrap:balance}
       <div class="meta" style="justify-content:center" id="po-meta"></div>
     </div>
   </section>
-  <div class="wrap" style="max-width:900px;margin-bottom:3.4rem"><div class="snap"><div class="tape"></div><div class="ph on" id="po-capa" style="height:420px"><img src="assets/capa-freud.jpg" alt="Imagem de capa do texto" loading="lazy" decoding="async"></div></div></div>
+  <div class="wrap" style="max-width:900px;margin-bottom:3.4rem"><div class="snap"><div class="tape"></div><div class="ph on" id="po-capa" style="height:420px"><img src="assets/cap-transferencia.svg" alt="Ilustração de capa do texto" loading="lazy" decoding="async"></div></div></div>
   <section style="padding-bottom:100px">
     <div class="wrap article">
       <div id="po-body"></div>
@@ -898,350 +896,16 @@ h1,h2,h3{text-wrap:balance}
       <div><h3 style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;font-family:var(--sans);font-weight:500;color:var(--sky)">Navegar</h3>
         <p><a onclick="go('home')">Início</a><br><a onclick="go('sobre')">Sobre</a><br><a onclick="go('blog')">Escritos</a><br><a onclick="go('contato')">Contato</a></p></div>
       <div><h3 style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;font-family:var(--sans);font-weight:500;color:var(--sky)">Contato</h3>
-        <p><a href="https://www.instagram.com/eduardamanzoli.psi/" target="_blank" rel="noopener">@eduardamanzoli.psi</a><br><a href="https://wa.me/message/ZA5AP5UJ54FTK1" target="_blank" rel="noopener">WhatsApp</a><br><a onclick="show('s-login')" style="cursor:pointer">Área restrita</a></p></div>
+        <p><a href="https://www.instagram.com/eduardamanzoli.psi/" target="_blank" rel="noopener">@eduardamanzoli.psi</a><br><a href="https://wa.me/message/ZA5AP5UJ54FTK1" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://eduarda-manzoli-admin.vercel.app" rel="nofollow">Área restrita</a></p></div>
     </div>
     <div class="ftr-bot"><span>© <span id="ano">2026</span> Eduarda Manzoli · CRP 16/11657 · Todos os direitos reservados</span><a onclick="go('privacidade')" style="cursor:pointer">Política de Privacidade</a></div>
   </div>
 </footer>
 </div><!-- /site -->
 
-<!-- ============ CMS · LOGIN ============ -->
-<div id="s-login" class="screen">
-  <div class="login">
-    <svg class="brush" style="top:-80px;left:-120px;width:560px;opacity:.5" viewBox="0 0 400 300"><path fill="#B7D0E2" d="M28,180 C60,120 120,90 190,110 C250,127 300,100 350,60 C368,120 340,190 280,222 C210,259 120,258 66,232 C36,217 18,205 28,180 Z"/></svg>
-    <svg class="brush" style="bottom:-110px;right:-90px;width:420px;opacity:.3" viewBox="0 0 300 300"><path fill="#3A5CC4" d="M40,150 C50,90 110,50 170,62 C230,74 265,130 250,190 C236,246 176,272 122,256 C70,241 30,208 40,150 Z"/></svg>
-    <div class="login-card">
-      <div class="mark">EM</div>
-      <h2>Área restrita</h2>
-      <p>Entre para cuidar do seu site.</p>
-      <div class="field"><label>E-mail</label><input value="contato@eduardamanzoli.com.br"></div>
-      <div class="field"><label>Senha</label><input type="password" value="123456789"></div>
-      <div class="login-row"><label style="display:flex;gap:.4rem;align-items:center;cursor:pointer"><input type="checkbox" checked style="width:auto"> Lembrar de mim</label><a style="cursor:pointer" onclick="toast('Enviamos um link de recuperação para o seu e-mail')">Esqueci minha senha</a></div>
-      <button class="btn btn-primary" style="width:100%" onclick="show('s-app');cms('painel')">Entrar</button>
-      <p style="font-size:.78rem;margin-top:1.6rem"><a onclick="go('home')" style="color:var(--muted);cursor:pointer">← Voltar para o site</a></p>
-    </div>
-  </div>
-</div>
-
-<!-- ============ CMS · APP ============ -->
-<div id="s-app" class="screen">
-<div class="app">
-  <aside class="side">
-    <div class="brand"><div class="m">EM</div><b>Eduarda Manzoli<small>Painel do site</small></b></div>
-    <ul class="smenu">
-      <li data-c="painel" onclick="cms('painel')"><span class="ic">◈</span> Painel</li>
-      <li data-c="paginas" onclick="cms('paginas')"><span class="ic">▤</span> Páginas</li>
-      <li data-c="blog" onclick="cms('blog')"><span class="ic">✎</span> Escritos</li>
-      <li data-c="midia" onclick="cms('midia')"><span class="ic">◫</span> Mídia</li>
-      <li data-c="mensagens" onclick="cms('mensagens')"><span class="ic">✉</span> Mensagens</li>
-      <li data-c="aparencia" onclick="cms('aparencia')"><span class="ic">✿</span> Aparência</li>
-      <li data-c="config" onclick="cms('config')"><span class="ic">⚙</span> Configurações</li>
-    </ul>
-    <div class="foot"><a onclick="go('home')">↗ Ver o site</a><a onclick="show('s-login')">Sair</a></div>
-  </aside>
-
-  <div class="main">
-    <div class="topbar">
-      <div class="search"><span>⌕</span><input placeholder="Buscar textos, páginas, mensagens..."></div>
-      <div class="sp"></div>
-      <button class="btn btn-primary btn-sm" onclick="cms('editor')">＋ Novo texto</button>
-      <button class="iconbtn" title="Mensagens" onclick="cms('mensagens')">✉<span class="badge">3</span></button>
-      <div class="avatar" title="Configurações" style="cursor:pointer" onclick="cms('config')">EM</div>
-    </div>
-    <div class="body">
-
-      <!-- PAINEL -->
-      <div class="csub active" id="c-painel">
-        <div class="page-head"><div><h2>Olá, Eduarda</h2><p>Resumo do seu site nos últimos 30 dias.</p></div>
-          <button class="btn btn-ghost btn-sm" onclick="go('home')">Ver o site ↗</button></div>
-        <div class="stats">
-          <div class="stat"><div class="l">Visitas no mês</div><div class="v">2.847</div><div class="d">↑ 18% vs. mês anterior</div></div>
-          <div class="stat"><div class="l">Textos publicados</div><div class="v">24</div><div class="d">2 publicados este mês</div></div>
-          <div class="stat"><div class="l">Rascunhos</div><div class="v">3</div><div class="d">1 agendado para sexta</div></div>
-          <div class="stat"><div class="l">Mensagens novas</div><div class="v">3</div><div class="d">Responder hoje</div></div>
-        </div>
-        <div class="cols">
-          <div class="panel">
-            <div class="panel-h"><h3>Visitas ao site</h3><a>Últimos 30 dias ▾</a></div>
-            <div class="panel-b">
-              <svg viewBox="0 0 600 190" style="width:100%;height:190px">
-                <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A5CC4" stop-opacity=".22"/><stop offset="1" stop-color="#3A5CC4" stop-opacity="0"/></linearGradient></defs>
-                <g stroke="#DDE4EC" stroke-width="1"><line x1="0" y1="20" x2="600" y2="20"/><line x1="0" y1="65" x2="600" y2="65"/><line x1="0" y1="110" x2="600" y2="110"/><line x1="0" y1="155" x2="600" y2="155"/></g>
-                <path d="M0,140 C50,132 70,105 110,112 C150,119 170,88 210,80 C250,72 270,96 310,86 C350,76 370,48 410,52 C450,56 470,74 510,60 C550,46 570,38 600,34 L600,190 L0,190 Z" fill="url(#g1)"/>
-                <path d="M0,140 C50,132 70,105 110,112 C150,119 170,88 210,80 C250,72 270,96 310,86 C350,76 370,48 410,52 C450,56 470,74 510,60 C550,46 570,38 600,34" fill="none" stroke="#3A5CC4" stroke-width="2.2"/>
-                <circle cx="600" cy="34" r="4" fill="#3A5CC4"/>
-                <g fill="#5E6B80" font-size="11" font-family="Inter"><text x="0" y="182">1 ago</text><text x="140" y="182">8</text><text x="285" y="182">15</text><text x="430" y="182">22</text><text x="558" y="182">30 ago</text></g>
-              </svg>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-h"><h3>Mensagens recentes</h3><a onclick="cms('mensagens')">Ver todas</a></div>
-            <div>
-              <div class="msg unread" onclick="cms('mensagens')"><div class="av">MC</div><div class="c"><b><span class="nm">Marina Costa</span> <small>2h</small></b><p>Oi Eduarda, li seu texto sobre o sofrimento e...</p></div></div>
-              <div class="msg unread" onclick="cms('mensagens')"><div class="av">RA</div><div class="c"><b><span class="nm">Rafaela A.</span> <small>5h</small></b><p>Gostaria de saber se você atende online e qual...</p></div></div>
-              <div class="msg unread" onclick="cms('mensagens')"><div class="av">JP</div><div class="c"><b><span class="nm">Juliana P.</span> <small>ontem</small></b><p>Boa tarde! É para minha filha, de 9 anos...</p></div></div>
-              <div class="msg" onclick="cms('mensagens')"><div class="av">LS</div><div class="c"><b><span class="nm">Letícia S.</span> <small>2 dias</small></b><p>Muito obrigada pelo retorno! Confirmo quinta às...</p></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-h"><h3>Textos recentes</h3><a onclick="cms('blog')">Gerenciar escritos</a></div>
-          <div class="tw"><table><thead><tr><th>Texto</th><th class="opt2">Tema</th><th>Status</th><th class="opt">Data</th><th class="opt">Visitas</th><th></th></tr></thead><tbody id="cms-rows-mini"></tbody></table></div>
-        </div>
-      </div>
-
-      <!-- BLOG -->
-      <div class="csub" id="c-blog">
-        <div class="page-head"><div><h2>Escritos</h2><p>24 publicados · 3 rascunhos · 1 agendado</p></div>
-          <button class="btn btn-primary btn-sm" onclick="cms('editor')">＋ Novo texto</button></div>
-        <div class="toolbar">
-          <input placeholder="⌕ Buscar por título..." style="min-width:230px">
-          <select><option>Todos os temas</option><option>Psicanálise</option><option>Escuta</option><option>Sintoma</option><option>Infância</option></select>
-          <select><option>Todos os status</option><option>Publicado</option><option>Rascunho</option><option>Agendado</option></select>
-          <div style="flex:1"></div><span style="font-size:.82rem;color:var(--muted)">Mostrando 8 de 28</span>
-        </div>
-        <div class="panel"><div class="tw"><table><thead><tr><th>Texto</th><th class="opt2">Tema</th><th>Status</th><th class="opt">Data</th><th class="opt">Visitas</th><th></th></tr></thead><tbody id="cms-rows"></tbody></table></div></div>
-      </div>
-
-      <!-- EDITOR -->
-      <div class="csub" id="c-editor">
-        <div class="page-head">
-          <div><a onclick="cms('blog')" style="font-size:.8rem;color:var(--muted);cursor:pointer">← Voltar para escritos</a><h2 style="margin-top:.35rem">Editar texto</h2><p>Salvo automaticamente há 2 minutos</p></div>
-          <div style="display:flex;gap:.5rem"><button class="btn btn-ghost btn-sm" onclick="toast('Rascunho salvo')">Salvar rascunho</button><button class="btn btn-ghost btn-sm" onclick="abrirPost(0)">Visualizar ↗</button><button class="btn btn-primary btn-sm" onclick="toast('Texto publicado no site')">Publicar</button></div>
-        </div>
-        <div class="ed">
-          <div class="panel">
-            <div class="ed-tools">
-              <button title="Negrito"><b>B</b></button><button title="Itálico"><i>I</i></button><button title="Sublinhado"><u>U</u></button>
-              <span class="div"></span><button title="Título 2">H2</button><button title="Título 3">H3</button>
-              <span class="div"></span><button title="Lista">☰</button><button title="Citação">❝</button><button title="Link">🔗</button><button title="Imagem">▨</button>
-              <span class="div"></span><button title="Desfazer">↶</button><button title="Refazer">↷</button>
-              <div style="flex:1"></div><span style="font-size:.74rem;color:var(--muted)">1.284 palavras · 8 min de leitura</span>
-            </div>
-            <div class="ed-canvas">
-              <input class="title" value="A psicanálise é uma clínica que cura através do amor">
-              <p>Existe uma frase que costuma causar estranhamento quando aparece: a de que a psicanálise cura através do amor. Ela soa romântica demais para uma clínica, e é justamente por isso que vale demorar nela.</p>
-              <p>Não se trata do amor no sentido corrente. Trata-se de algo que Freud nomeou como transferência: a repetição, dentro da análise, das formas de amar que se constituíram muito antes dela.</p>
-              <h3 style="font-family:var(--serif);font-weight:400;font-size:1.35rem;margin:1.6rem 0 .8rem">O que se repete na sala</h3>
-              <p>A pessoa chega e, sem perceber, começa a tratar o analista do jeito como aprendeu a tratar quem importa. Espera aprovação. Teme decepcionar. Se cala no ponto exato em que sempre se calou.</p>
-              <div class="pullquote" style="margin:1.6rem 0"><p style="font-size:1.15rem">Ama-se o que te constituiu.</p></div>
-              <p>E isso não é um problema do processo. Isso é o processo.</p>
-              <div class="blockadd" onclick="toast('Escolha o tipo de bloco: texto, título, imagem, citação, lista ou vídeo')"><span class="p">＋</span> Adicionar bloco: texto, título, imagem, citação, lista, vídeo</div>
-            </div>
-          </div>
-          <div class="rail">
-            <div class="panel"><div class="panel-h"><h3>Publicação</h3></div><div class="panel-b">
-              <div class="field"><label>Status</label><select><option>Rascunho</option><option selected>Publicado</option><option>Agendado</option></select></div>
-              <div class="field"><label>Data</label><input value="12/08/2026  09:00"></div>
-              <div class="field"><label>Tema</label><select><option selected>Psicanálise</option><option>Escuta</option><option>Sintoma</option><option>Infância</option><option>Repetição</option></select></div>
-              <div class="field"><label>Tags</label><div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.3rem"><span class="tag">transferência</span><span class="tag">Freud</span><span class="tag" style="border-style:dashed">＋</span></div></div>
-            </div></div>
-            <div class="panel"><div class="panel-h"><h3>Imagem de capa</h3></div><div class="panel-b">
-              <div class="ph on" style="height:106px;margin-bottom:.6rem"><img src="assets/capa-freud.jpg" alt="Capa atual do texto" loading="lazy" decoding="async"></div>
-              <div class="drop">Arraste uma imagem ou clique para escolher</div>
-            </div></div>
-            <div class="panel"><div class="panel-h"><h3>SEO</h3></div><div class="panel-b">
-              <div class="field"><label>Título no Google</label><input value="A psicanálise é uma clínica que cura através do amor"></div>
-              <div class="field"><label>Descrição</label><textarea style="min-height:62px">Um texto sobre transferência e sobre por que a relação com o analista é, ela mesma, o instrumento do trabalho.</textarea></div>
-              <div class="field"><label>Link (slug)</label><input value="/escritos/clinica-que-cura-atraves-do-amor"></div>
-              <div class="seo-prev"><div class="u">eduardamanzoli.com.br › escritos</div><div class="t">A psicanálise é uma clínica que cura através do amor</div><div class="d">Um texto sobre transferência e sobre por que a relação com o analista é, ela mesma, o instrumento do trabalho.</div></div>
-            </div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- APARÊNCIA -->
-      <div class="csub" id="c-aparencia">
-        <div class="page-head"><div><h2>Aparência do site</h2><p>Edite qualquer seção da página inicial. As alterações aparecem no preview ao lado.</p></div>
-          <div style="display:flex;gap:.5rem"><button class="btn btn-ghost btn-sm" onclick="toast('Alterações descartadas')">Descartar</button><button class="btn btn-primary btn-sm" onclick="toast('Site atualizado com sucesso')">Salvar alterações</button></div></div>
-        <div class="ap">
-          <div>
-            <div class="panel" style="margin-bottom:.9rem">
-              <div class="panel-h"><h3>Seções da página inicial</h3><a>Reordenar</a></div>
-              <div>
-                <div class="acc open">
-                  <div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Hero (topo)</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div>
-                  <div class="acc-b">
-                    <div class="field"><label>Linha de apoio</label><input value="Psicóloga · Psicanálise · CRP 16/11657"></div>
-                    <div class="field"><label>Título</label><textarea style="min-height:54px">Um espaço de escuta e elaboração.</textarea></div>
-                    <div class="field"><label>Texto</label><textarea style="min-height:74px">Sou Eduarda Manzoli, psicóloga formada pela UFES. Atendo crianças, adolescentes e adultos.</textarea></div>
-                    <div class="field"><label>Frase do recorte</label><input value="Escutar alguém profundamente exige abrir mão do lugar de quem sabe."></div>
-                    <div class="field"><label>Botão principal</label><input value="Agendar atendimento"></div>
-                    <div class="field"><label>Foto</label><div style="display:flex;gap:.6rem;align-items:center"><div class="ph on" style="width:52px;height:52px"><img src="assets/hero.jpg" alt="Foto do topo" style="object-position:center 18%" loading="lazy" decoding="async"></div><button class="btn btn-ghost btn-sm" onclick="cms('midia')">Trocar imagem</button></div></div>
-                  </div>
-                </div>
-                <div class="acc"><div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Faixa de credenciais</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div><div class="acc-b"><div class="field"><label>Itens (um por linha)</label><textarea style="min-height:80px">Psicóloga · UFES
-CRP 16/11657
-Atendimento online
-Presencial em Vitória e Vila Velha (ES)</textarea></div></div></div>
-                <div class="acc"><div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Frase-manifesto</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div><div class="acc-b"><div class="field"><label>Frase</label><textarea style="min-height:58px">A psicanálise é uma clínica que cura através do amor.</textarea></div></div></div>
-                <div class="acc"><div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Sobre mim</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div><div class="acc-b"><div class="field"><label>Título</label><input value="Como a pequena sonhadora encontrou a psicologia."></div></div></div>
-                <div class="acc"><div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Quem eu atendo</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div><div class="acc-b">
-                  <div class="item"><span class="grab">⣿</span><b>Adultos</b><span class="ed-lnk" onclick="toast('Editando o card “Adultos”')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>Adolescentes</b><span class="ed-lnk" onclick="toast('Editando o card “Adolescentes”')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>Crianças</b><span class="ed-lnk" onclick="toast('Editando o card “Crianças”')">Editar</span></div>
-                  <button class="btn btn-ghost btn-sm" style="margin-top:.7rem" onclick="toast('Novo grupo adicionado')">＋ Adicionar grupo</button></div></div>
-                <div class="acc"><div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Como funciona</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div><div class="acc-b">
-                  <div class="item"><span class="grab">⣿</span><b>i · Primeiro contato</b><span class="ed-lnk" onclick="toast('Editando o passo 1')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>ii · Entrevistas preliminares</b><span class="ed-lnk" onclick="toast('Editando o passo 2')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>iii · Combinamos o enquadre</b><span class="ed-lnk" onclick="toast('Editando o passo 3')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>iv · O trabalho</b><span class="ed-lnk" onclick="toast('Editando o passo 4')">Editar</span></div>
-                  <button class="btn btn-ghost btn-sm" style="margin-top:.7rem" onclick="toast('Novo passo adicionado')">＋ Adicionar passo</button></div></div>
-                <div class="acc"><div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Faixa de atendimento online</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div><div class="acc-b"><div class="field"><label>Título</label><input value="De onde você estiver, com o mesmo enquadre."></div></div></div>
-                <div class="acc"><div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Escritos recentes</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div><div class="acc-b"><div class="field"><label>Quantos mostrar</label><select><option>3</option><option>6</option></select></div></div></div>
-                <div class="acc"><div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Dúvidas frequentes</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div><div class="acc-b">
-                  <div class="item"><span class="grab">⣿</span><b>Como sei se preciso de análise?</b><span class="ed-lnk" onclick="toast('Editando a pergunta')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>Quanto tempo dura o processo?</b><span class="ed-lnk" onclick="toast('Editando a pergunta')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>Qual é a frequência das sessões?</b><span class="ed-lnk" onclick="toast('Editando a pergunta')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>Qual é o valor?</b><span class="ed-lnk" onclick="toast('Editando a pergunta')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>O atendimento online funciona?</b><span class="ed-lnk" onclick="toast('Editando a pergunta')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>Como funciona o atendimento infantil?</b><span class="ed-lnk" onclick="toast('Editando a pergunta')">Editar</span></div>
-                  <div class="item"><span class="grab">⣿</span><b>O que eu falo fica entre nós?</b><span class="ed-lnk" onclick="toast('Editando a pergunta')">Editar</span></div>
-                  <button class="btn btn-ghost btn-sm" style="margin-top:.7rem" onclick="toast('Nova pergunta adicionada')">＋ Adicionar pergunta</button></div></div>
-                <div class="acc"><div class="acc-h" onclick="this.parentNode.classList.toggle('open')"><span class="grab">⣿</span><b>Rodapé</b><span class="sw" onclick="event.stopPropagation();this.classList.toggle('off')"></span></div><div class="acc-b"><div class="field"><label>Instagram</label><input value="@eduardamanzoli.psi"></div><div class="field"><label>Link do WhatsApp</label><input value="wa.me/message/ZA5AP5UJ54FTK1"></div><div class="field"><label>CRP</label><input value="16/11657"></div></div></div>
-              </div>
-            </div>
-            <div class="panel"><div class="panel-h"><h3>Identidade visual</h3></div><div class="panel-b">
-              <div class="field"><label>Paleta</label><div class="swatches" style="margin-top:.35rem">
-                <span class="swatch on" style="background:#2A3F94"></span><span class="swatch" style="background:#3A5CC4"></span><span class="swatch" style="background:#8FAFC8"></span>
-                <span class="swatch" style="background:#B7D0E2"></span><span class="swatch" style="background:#D9E6F0"></span><span class="swatch" style="background:#F2F0EA"></span><span class="swatch" style="background:#16233F"></span>
-                <span class="swatch" style="background:transparent;border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted)">＋</span></div></div>
-              <div class="field"><label>Fonte dos títulos</label><select><option selected>Playfair Display</option><option>Bodoni Moda</option><option>Cormorant</option></select></div>
-              <div class="field"><label>Fonte do texto</label><select><option selected>Inter</option><option>Source Sans</option></select></div>
-              <div class="field"><label>Textura de papel</label><select><option selected>Sutil</option><option>Marcada</option><option>Nenhuma</option></select></div>
-            </div></div>
-          </div>
-          <div class="preview">
-            <div class="preview-bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">eduardamanzoli.com.br</span><span style="font-size:.7rem;color:var(--muted)">💻 ▫ 📱</span></div>
-            <div class="mini">
-              <div class="mhero sel">
-                <div><div style="font-size:.56rem;color:var(--cobalt);letter-spacing:.18em;text-transform:uppercase;margin-bottom:5px">Psicanálise · CRP 16/11657</div>
-                  <h4>Um espaço de escuta e elaboração.</h4>
-                  <div class="mline"></div><div class="mline s"></div>
-                  <span style="display:inline-block;background:var(--royal);color:#fff;font-size:.58rem;padding:4px 12px;margin-top:7px">Agendar atendimento</span></div>
-                <div class="ph on"><img src="assets/hero.jpg" alt="Prévia da foto do topo" style="object-position:center 18%" loading="lazy" decoding="async"></div>
-              </div>
-              <div class="mline" style="height:22px;background:var(--royal);margin-bottom:12px"></div>
-              <div class="mrow"><div class="mbox"><div class="mline" style="width:30%"></div><div class="mline"></div><div class="mline s"></div></div>
-                <div class="mbox"><div class="mline" style="width:30%"></div><div class="mline"></div><div class="mline s"></div></div>
-                <div class="mbox"><div class="mline" style="width:30%"></div><div class="mline"></div><div class="mline s"></div></div></div>
-              <div class="mbox" style="height:auto;padding:14px"><div class="mline" style="width:40%"></div><div class="mrow" style="margin:10px 0 0"><div class="mline" style="height:44px"></div><div class="mline" style="height:44px"></div><div class="mline" style="height:44px"></div></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MENSAGENS -->
-      <div class="csub" id="c-mensagens">
-        <div class="page-head"><div><h2>Mensagens</h2><p>3 não lidas · 41 no total</p></div>
-          <div class="toolbar" style="margin:0"><select><option>Todas</option><option>Não lidas</option><option>Respondidas</option></select></div></div>
-        <div class="inbox">
-          <div class="panel" style="max-height:600px;overflow:auto">
-            <div class="msg unread on"><div class="av">MC</div><div class="c"><b><span class="nm">Marina Costa</span> <small>2h</small></b><p>Oi Eduarda, li seu texto sobre o sofrimento e...</p></div></div>
-            <div class="msg unread"><div class="av">RA</div><div class="c"><b><span class="nm">Rafaela A.</span> <small>5h</small></b><p>Gostaria de saber se você atende online e qual...</p></div></div>
-            <div class="msg unread"><div class="av">JP</div><div class="c"><b><span class="nm">Juliana P.</span> <small>ontem</small></b><p>Boa tarde! É para minha filha, de 9 anos...</p></div></div>
-            <div class="msg"><div class="av">LS</div><div class="c"><b><span class="nm">Letícia S.</span> <small>2 dias</small></b><p>Muito obrigada pelo retorno! Confirmo quinta às 15h</p></div></div>
-            <div class="msg"><div class="av">CF</div><div class="c"><b><span class="nm">Camila F.</span> <small>3 dias</small></b><p>Oi! Queria entender como funcionam as entrevistas...</p></div></div>
-            <div class="msg"><div class="av">AB</div><div class="c"><b><span class="nm">Ana Beatriz</span> <small>5 dias</small></b><p>Bom dia, Eduarda. Fui indicada por uma amiga...</p></div></div>
-            <div class="msg"><div class="av">TM</div><div class="c"><b><span class="nm">Thaís M.</span> <small>1 sem</small></b><p>Obrigada, foi muito importante nossa conversa</p></div></div>
-          </div>
-          <div class="panel">
-            <div class="panel-h"><div><h3>Marina Costa</h3><p style="font-size:.79rem">marina.costa@email.com · (27) 99xxx-xxxx</p></div><span class="st agd">Não respondida</span></div>
-            <div class="panel-b">
-              <div style="display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.79rem;color:var(--muted);margin-bottom:1.4rem;padding-bottom:1.1rem;border-bottom:1px solid var(--line)">
-                <span><b style="color:var(--ink);font-weight:500">Recebida:</b> hoje, 09:42</span>
-                <span><b style="color:var(--ink);font-weight:500">Para:</b> Adulto</span>
-                <span><b style="color:var(--ink);font-weight:500">Modalidade:</b> Online</span>
-                <span><b style="color:var(--ink);font-weight:500">Origem:</b> Formulário dos escritos</span>
-              </div>
-              <p style="font-family:var(--serif);font-size:1.03rem;line-height:1.86;color:#2C3448">Oi Eduarda, tudo bem?<br><br>Li seu texto sobre o sofrimento que a gente tolera por tempo demais e senti que era sobre mim. Faz uns três anos que venho adiando procurar alguém, sempre achando que ia passar sozinho.<br><br>Nunca fiz análise e confesso que não sei muito bem como funciona. Queria entender como são as primeiras conversas e se você tem horário no fim da tarde.<br><br>Obrigada!<br>Marina</p>
-              <div style="display:flex;gap:.5rem;margin-top:2rem;flex-wrap:wrap">
-                <a class="btn btn-primary btn-sm" href="https://wa.me/message/ZA5AP5UJ54FTK1" target="_blank" rel="noopener">Responder no WhatsApp</a>
-                <button class="btn btn-ghost btn-sm" onclick="toast('Abrindo o seu e-mail...')">Responder por e-mail</button>
-                <button class="btn btn-ghost btn-sm" onclick="toast('Mensagem marcada como respondida')">Marcar como respondida</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PÁGINAS -->
-      <div class="csub" id="c-paginas">
-        <div class="page-head"><div><h2>Páginas</h2><p>As páginas fixas do site. Clique em uma para editar o conteúdo.</p></div>
-          <button class="btn btn-ghost btn-sm" onclick="go('home')">Ver o site ↗</button></div>
-        <div class="panel">
-          <div class="tw"><table><thead><tr><th>Página</th><th class="opt2">Endereço</th><th>Status</th><th class="opt">Atualizada</th><th></th></tr></thead>
-          <tbody>
-            <tr style="cursor:pointer" onclick="cms('aparencia')"><td><div class="tt"><div class="thumb ph on"><img src="assets/hero.jpg" alt="" loading="lazy"></div><div><b>Início</b><small>Hero, clínica, como funciona, dúvidas</small></div></div></td><td class="opt2" style="color:var(--muted)">/</td><td><span class="st pub">Publicada</span></td><td class="opt" style="color:var(--muted)">12 ago 2026</td><td><span class="rowact">Editar</span></td></tr>
-            <tr style="cursor:pointer" onclick="cms('aparencia')"><td><div class="tt"><div class="thumb ph on"><img src="assets/consultorio.jpg" alt="" loading="lazy"></div><div><b>Sobre</b><small>História, formação, onde atendo</small></div></div></td><td class="opt2" style="color:var(--muted)">/sobre</td><td><span class="st pub">Publicada</span></td><td class="opt" style="color:var(--muted)">02 ago 2026</td><td><span class="rowact">Editar</span></td></tr>
-            <tr style="cursor:pointer" onclick="cms('blog')"><td><div class="tt"><div class="thumb ph on"><img src="assets/capa-freud.jpg" alt="" loading="lazy"></div><div><b>Escritos</b><small>Índice do blog</small></div></div></td><td class="opt2" style="color:var(--muted)">/escritos</td><td><span class="st pub">Publicada</span></td><td class="opt" style="color:var(--muted)">12 ago 2026</td><td><span class="rowact">Editar</span></td></tr>
-            <tr style="cursor:pointer" onclick="cms('aparencia')"><td><div class="tt"><div class="thumb ph on"><img src="assets/contato.jpg" alt="" loading="lazy"></div><div><b>Contato</b><small>Formulário, WhatsApp, endereços</small></div></div></td><td class="opt2" style="color:var(--muted)">/contato</td><td><span class="st pub">Publicada</span></td><td class="opt" style="color:var(--muted)">28 jul 2026</td><td><span class="rowact">Editar</span></td></tr>
-            <tr style="cursor:pointer" onclick="cms('config')"><td><div class="tt"><div class="thumb ph on"><img src="assets/capa-caneta.jpg" alt="" loading="lazy"></div><div><b>Política de Privacidade</b><small>Sigilo, LGPD, dados coletados</small></div></div></td><td class="opt2" style="color:var(--muted)">/privacidade</td><td><span class="st pub">Publicada</span></td><td class="opt" style="color:var(--muted)">15 jul 2026</td><td><span class="rowact">Editar</span></td></tr>
-            <tr style="cursor:pointer" onclick="toast('Esta página ainda é um rascunho e não aparece no site')"><td><div class="tt"><div class="thumb ph on"><img src="assets/capa-chao.jpg" alt="" loading="lazy"></div><div><b>Perguntas frequentes</b><small>Página separada de dúvidas</small></div></div></td><td class="opt2" style="color:var(--muted)">/duvidas</td><td><span class="st dra">Rascunho</span></td><td class="opt" style="color:var(--muted)">·</td><td><span class="rowact">Editar</span></td></tr>
-          </tbody></table></div>
-        </div>
-      </div>
-
-      <!-- CONFIGURAÇÕES -->
-      <div class="csub" id="c-config">
-        <div class="page-head"><div><h2>Configurações</h2><p>Seus dados profissionais, contatos e preferências do site.</p></div>
-          <button class="btn btn-primary btn-sm" onclick="toast('Configurações salvas')">Salvar alterações</button></div>
-        <div class="cols even">
-          <div>
-            <div class="panel" style="margin-bottom:1rem"><div class="panel-h"><h3>Dados profissionais</h3></div><div class="panel-b">
-              <div class="field"><label>Nome</label><input value="Eduarda Manzoli"></div>
-              <div class="field"><label>Título</label><input value="Psicóloga · Psicanálise"></div>
-              <div class="field"><label>CRP</label><input value="16/11657"></div>
-              <div class="field"><label>Formação</label><input value="Psicologia, Universidade Federal do Espírito Santo (UFES)"></div>
-              <div class="field"><label>Descrição curta (rodapé e Google)</label><textarea style="min-height:64px">Espaço de escuta e elaboração para adultos, adolescentes e crianças.</textarea></div>
-            </div></div>
-            <div class="panel"><div class="panel-h"><h3>Público atendido</h3></div><div class="panel-b">
-              <div style="display:flex;flex-direction:column;gap:.8rem">
-                <label style="display:flex;align-items:center;gap:.7rem;font-size:.88rem;cursor:pointer"><span class="sw" onclick="this.classList.toggle('off')"></span> Adultos</label>
-                <label style="display:flex;align-items:center;gap:.7rem;font-size:.88rem;cursor:pointer"><span class="sw" onclick="this.classList.toggle('off')"></span> Adolescentes</label>
-                <label style="display:flex;align-items:center;gap:.7rem;font-size:.88rem;cursor:pointer"><span class="sw" onclick="this.classList.toggle('off')"></span> Crianças</label>
-              </div>
-            </div></div>
-          </div>
-          <div>
-            <div class="panel" style="margin-bottom:1rem"><div class="panel-h"><h3>Contato e redes</h3></div><div class="panel-b">
-              <div class="field"><label>E-mail</label><input value="contato@eduardamanzoli.com.br"></div>
-              <div class="field"><label>Link do WhatsApp</label><input value="wa.me/message/ZA5AP5UJ54FTK1"></div>
-              <div class="field"><label>Instagram</label><input value="@eduardamanzoli.psi"></div>
-            </div></div>
-            <div class="panel" style="margin-bottom:1rem"><div class="panel-h"><h3>Locais de atendimento</h3><a onclick="toast('Novo local adicionado')">＋ Adicionar</a></div><div class="panel-b">
-              <div class="field"><label>Online</label><input value="Todo o Brasil e exterior, por vídeo"></div>
-              <div class="field"><label>Presencial 1</label><input value="Vitória (ES)"></div>
-              <div class="field"><label>Presencial 2</label><input value="Vila Velha (ES)"></div>
-            </div></div>
-            <div class="panel"><div class="panel-h"><h3>Conta</h3></div><div class="panel-b">
-              <div class="field"><label>E-mail de acesso</label><input value="contato@eduardamanzoli.com.br"></div>
-              <div class="field"><label>Senha</label><input type="password" value="123456789"></div>
-              <button class="btn btn-ghost btn-sm" onclick="toast('Enviamos um link de troca de senha para o seu e-mail')">Alterar senha</button>
-            </div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MÍDIA -->
-      <div class="csub" id="c-midia">
-        <div class="page-head"><div><h2>Mídia</h2><p>36 arquivos · 84 MB de 2 GB usados</p></div><button class="btn btn-primary btn-sm" onclick="toast('Escolha as imagens no seu computador')">⬆ Enviar imagens</button></div>
-        <div class="drop" style="padding:2.6rem;margin-bottom:1.5rem;background:var(--card)">
-          <div style="font-size:1.5rem;margin-bottom:.4rem">◫</div>
-          Arraste suas fotos aqui ou <b style="color:var(--cobalt)">clique para escolher</b><br>
-          <small style="opacity:.7">JPG, PNG ou WEBP · até 5 MB por arquivo</small>
-        </div>
-        <div class="media" id="media-grid"></div>
-      </div>
-
-    </div>
-  </div>
-</div>
-</div><!-- /app -->
-
+<div id="toast"></div>
 
 <script>
-/* ---------- conteúdo ---------- */
 var POSTS=[
  {t:"A psicanálise é uma clínica que cura através do amor",c:"Psicanálise",d:"12 ago 2026",r:"8 min",v:"3.410",
   e:"Você não é amado como ele o seria. Ama-se o que te constituiu. Um texto sobre transferência e sobre por que a relação com o analista é, ela mesma, o instrumento do trabalho.",
@@ -1292,145 +956,71 @@ var POSTS=[
   secs:[["O ideal que adoece",["O problema não é querer estar bem. É tratar o desequilíbrio como erro pessoal, sinal de que algo em você não funciona como deveria.","Boa parte do que chega ao consultório como “fracasso” é, na verdade, a experiência comum de ser humano lida sob um critério impossível."]],
         ["O improviso",["Ninguém tem o manual. As escolhas são feitas com informação incompleta, e as consequências só aparecem depois. Isso não é falha de caráter: é a condição.","Aceitar o improviso não é desistir de mudar. É parar de gastar energia se punindo por não ter acertado antes de ser possível saber."]]]}
 ];
-var rota='home', silencioso=true, postAtual=0;
-var CAPAS=["capa-freud.jpg","capa-leitura.jpg","capa-parede.jpg","capa-livro.jpg","capa-caneta.jpg","capa-escrita.jpg","capa-chao.jpg"];
-var FILTRO='Todos', PAG=1, PORPAG=6;
-
-/* ---------- render ---------- */
+var CAPAS=["cap-transferencia.svg","cap-tempo.svg","cap-infancia.svg","cap-escuta.svg","cap-sintoma.svg","cap-repeticao.svg","cap-existencia.svg"];
+var FILTRO='Todos', PAG=1, PORPAG=6, postAtual=0, silencioso=true;
 function card(p,i){return '<div class="post-card" onclick="abrirPost('+i+')"><div class="ph on"><img src="assets/'+CAPAS[i]+'" alt="" loading="lazy" decoding="async"></div><div class="b"><span class="tag" style="align-self:flex-start">'+p.c+'</span><h3>'+p.t+'</h3><p>'+p.e+'</p><div class="meta"><span>'+p.d+'</span><i class="dot"></i><span>'+p.r+'</span></div></div></div>';}
 function idx(p){return POSTS.indexOf(p);}
-function cards(list){return list.map(function(p){return card(p,idx(p))}).join('');}
-
+function cards(l){return l.map(function(p){return card(p,idx(p))}).join('');}
 document.getElementById('home-posts').innerHTML=cards(POSTS.slice(1,4));
-
-function featHTML(){var p=POSTS[0];
- return '<div class="feat" onclick="abrirPost(0)"><div class="ph on"><img src="assets/'+CAPAS[0]+'" alt="" loading="lazy" decoding="async"></div>'+
+(function(){var p=POSTS[0];document.getElementById('feat-slot').innerHTML=
+ '<div class="feat" onclick="abrirPost(0)"><div class="ph on"><img src="assets/'+CAPAS[0]+'" alt="" loading="lazy" decoding="async"></div>'+
  '<div class="feat-body"><span class="tag" style="margin-bottom:1.2rem">'+p.c+'</span>'+
  '<h2 style="font-size:2.05rem;margin:.5rem 0 1.1rem">'+p.t+'</h2>'+
  '<p style="margin-bottom:1.5rem">'+p.e+'</p>'+
- '<div class="meta"><span>'+p.d+'</span><i class="dot"></i><span>'+p.r+' de leitura</span></div></div></div>';}
-document.getElementById('feat-slot').innerHTML=featHTML();
-
+ '<div class="meta"><span>'+p.d+'</span><i class="dot"></i><span>'+p.r+' de leitura</span></div></div></div>';})();
 function listaFiltrada(){return FILTRO==='Todos'?POSTS.slice(1):POSTS.filter(function(p){return p.c===FILTRO});}
 function renderBlog(){
   var L=listaFiltrada(), tot=Math.max(1,Math.ceil(L.length/PORPAG));
   if(PAG>tot)PAG=1;
-  var pagina=L.slice((PAG-1)*PORPAG,PAG*PORPAG);
-  var g=document.getElementById('blog-grid');
-  g.innerHTML = pagina.length ? cards(pagina)
-    : '<div style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--muted)"><p>Nenhum texto neste tema ainda.</p><button class="btn btn-ghost btn-sm" style="margin-top:1rem" onclick="filtrar(\'Todos\')">Ver todos os textos</button></div>';
+  var g=document.getElementById('blog-grid'), pagina=L.slice((PAG-1)*PORPAG,PAG*PORPAG);
+  g.innerHTML=pagina.length?cards(pagina):'<div style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--muted)"><p>Nenhum texto neste tema ainda.</p><button class="btn btn-ghost btn-sm" style="margin-top:1rem" onclick="filtrar(\'Todos\')">Ver todos os textos</button></div>';
   var h='';
   for(var i=1;i<=tot;i++)h+='<span class="chip'+(i===PAG?' on':'')+'" onclick="irPag('+i+')">'+i+'</span>';
   if(PAG<tot)h+='<span class="chip" onclick="irPag('+(PAG+1)+')">Próxima →</span>';
   document.getElementById('pager').innerHTML=tot>1?h:'';
 }
-function filtrar(tema,el){
-  FILTRO=tema;PAG=1;
-  var chips=document.querySelectorAll('#p-blog .chips .chip');
-  chips.forEach(function(c){c.classList.toggle('on',c.textContent.trim()===tema)});
-  renderBlog();
-  if(!el)go('blog');
-}
+function filtrar(t,el){FILTRO=t;PAG=1;
+  document.querySelectorAll('#p-blog .chips .chip').forEach(function(c){c.classList.toggle('on',c.textContent.trim()===t)});
+  renderBlog(); if(!el)go('blog');}
 function irPag(n){PAG=n;renderBlog();document.getElementById('p-blog').scrollIntoView({behavior:'smooth'});}
 renderBlog();
-
-/* ---------- post ---------- */
 function abrirPost(i){
-  postAtual=i;
-  var p=POSTS[i];
+  postAtual=i; var p=POSTS[i];
   document.getElementById('po-tag').textContent=p.c;
   document.getElementById('po-title').innerHTML=p.t;
   document.getElementById('po-meta').innerHTML='<span>'+p.d+'</span><i class="dot"></i><span>'+p.r+'</span><i class="dot"></i><span>Eduarda Manzoli</span>';
-  var h='<p class="first">'+p.lead+'</p>';
-  h+='<h2>'+p.secs[0][0]+'</h2>';
+  var h='<p class="first">'+p.lead+'</p><h2>'+p.secs[0][0]+'</h2>';
   p.secs[0][1].forEach(function(t){h+='<p>'+t+'</p>'});
-  h+='<div class="pullquote"><p>'+p.pull+'</p></div>';
-  h+='<h2>'+p.secs[1][0]+'</h2>';
+  h+='<div class="pullquote"><p>'+p.pull+'</p></div><h2>'+p.secs[1][0]+'</h2>';
   p.secs[1][1].forEach(function(t){h+='<p>'+t+'</p>'});
   h+='<p>Se algo nesse texto ressoou, talvez valha a pena começar a falar sobre isso em algum lugar. Pode ser aqui.</p>';
   document.getElementById('po-body').innerHTML=h;
   document.querySelector('#po-capa img').src='assets/'+CAPAS[i];
-  var outros=POSTS.filter(function(x,j){return j!==i}).slice(0,2);
-  document.getElementById('related').innerHTML=cards(outros);
+  document.getElementById('related').innerHTML=cards(POSTS.filter(function(x,j){return j!==i}).slice(0,2));
   go('post');
 }
-abrirPost(0);
-
-/* ---------- CMS tabelas ---------- */
-var ST=['pub','pub','pub','dra','agd','pub','dra','pub'],STL={pub:'Publicado',dra:'Rascunho',agd:'Agendado'};
-function slug(t){return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9\s]/g,'').replace(/\s+/g,'-').slice(0,28);}
-function rows(n){var h='';for(var i=0;i<n;i++){var p=POSTS[i%POSTS.length],s=ST[i%ST.length];
- h+='<tr onclick="cms(\'editor\')" style="cursor:pointer"><td><div class="tt"><div class="thumb ph on"><img src="assets/'+CAPAS[i%CAPAS.length]+'" alt="" loading="lazy"></div><div><b>'+p.t+'</b><small>/escritos/'+slug(p.t)+'</small></div></div></td><td class="opt2" style="color:var(--muted)">'+p.c+'</td><td><span class="st '+s+'">'+STL[s]+'</span></td><td class="opt" style="color:var(--muted)">'+p.d+'</td><td class="opt" style="color:var(--muted)">'+(s=='pub'?p.v:'·')+'</td><td><span class="rowact" onclick="event.stopPropagation();toast(\'Editar · Duplicar · Excluir\')">•••</span></td></tr>';}return h;}
-document.getElementById('cms-rows').innerHTML=rows(8);
-document.getElementById('cms-rows-mini').innerHTML=rows(4);
-var MIDIA=["hero.jpg","retrato.jpg","consultorio.jpg","sobre-banner.jpg","contato.jpg","capa-freud.jpg","capa-leitura.jpg","capa-parede.jpg","capa-livro.jpg","capa-caneta.jpg","capa-escrita.jpg","capa-chao.jpg"];
-document.getElementById('media-grid').innerHTML=MIDIA.map(function(f,i){
- return '<div class="it ph on" title="'+f+'" onclick="toast(\''+f+' selecionada. Use ‘Trocar imagem’ para aplicar\')"><img src="assets/'+f+'" alt="" loading="lazy"></div>';}).join('');
-
-/* ---------- navegação ---------- */
-function show(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});
-  document.getElementById(id).classList.add('active');window.scrollTo(0,0);if(id==='s-login')mark('login');}
-function go(p,hash){show('s-site');
-  document.querySelectorAll('#s-site .sub').forEach(function(s){s.classList.remove('active')});
-  var el=document.getElementById('p-'+p);if(el)el.classList.add('active');
+var TITULOS={home:'Eduarda Manzoli · Psicóloga e Psicanalista em Vitória e Vila Velha (ES)',sobre:'Sobre mim · Eduarda Manzoli',blog:'Escritos · Eduarda Manzoli',post:'Escritos · Eduarda Manzoli',contato:'Contato · Eduarda Manzoli',privacidade:'Política de Privacidade · Eduarda Manzoli'};
+function go(p,hash){
+  document.querySelectorAll('#s-site .sub').forEach(function(x){x.classList.remove('active')});
+  var el=document.getElementById('p-'+p); if(el)el.classList.add('active');
   var atv=(p==='post')?'blog':p;
   document.querySelectorAll('.nav a').forEach(function(a){a.classList.toggle('on',a.dataset.p===atv)});
-  mark(p);
-  if(hash){setTimeout(function(){var t=document.querySelector(hash);if(t)t.scrollIntoView({behavior:'smooth'})},60)}else window.scrollTo(0,0);}
-function cms(p){show('s-app');
-  document.querySelectorAll('.csub').forEach(function(s){s.classList.remove('active')});
-  var el=document.getElementById('c-'+p);if(el)el.classList.add('active');
-  var key=(p==='editor')?'blog':p;
-  document.querySelectorAll('.smenu li').forEach(function(l){l.classList.toggle('on',l.dataset.c===key)});
-  mark(p==='blog'?'cblog':p);window.scrollTo(0,0);}
-function mark(n){rota=n;if(!silencioso)location.hash='#/'+n;}
-function dclose(){document.getElementById('drawer').classList.remove('open')}
-
-/* ---------- feedback ---------- */
-var tmr;
-function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');
-  clearTimeout(tmr);tmr=setTimeout(function(){t.classList.remove('on')},3200);}
-function enviarForm(btn){
-  var box=btn.closest('.paper')||btn.parentNode;
-  box.innerHTML='<div class="form-ok"><div class="ic">✓</div><h3>Mensagem enviada</h3>'+
-    '<p>Obrigada por escrever. Respondo pessoalmente, normalmente em até 24 horas.</p>'+
-    '<a class="btn btn-ghost btn-sm" href="https://wa.me/message/ZA5AP5UJ54FTK1" target="_blank" rel="noopener">Falar agora no WhatsApp</a></div>';
+  if(!silencioso)location.hash='#/'+p;
+  document.title=TITULOS[p]||TITULOS.home;
+  if(hash){setTimeout(function(){var t=document.querySelector(hash);if(t)t.scrollIntoView({behavior:'smooth'})},60)}else window.scrollTo(0,0);
 }
-
-/* ---------- interações ---------- */
-window.addEventListener('scroll',function(){document.getElementById('hdr').classList.toggle('solid',window.scrollY>20)});
-document.querySelectorAll('.swatch').forEach(function(s){s.addEventListener('click',function(){
-  this.parentNode.querySelectorAll('.swatch').forEach(function(x){x.classList.remove('on')});this.classList.add('on')})});
-document.querySelectorAll('#c-mensagens .msg').forEach(function(m){m.addEventListener('click',function(){
-  document.querySelectorAll('#c-mensagens .msg').forEach(function(x){x.classList.remove('on')});this.classList.add('on');this.classList.remove('unread')})});
-document.querySelectorAll('#s-login input').forEach(function(i){i.addEventListener('keydown',function(e){
-  if(e.key==='Enter'){cms('painel')}})});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')dclose()});
-
-
-/* ---------- roteamento por URL ---------- */
-var TITULOS={
- home:'Eduarda Manzoli · Psicóloga e Psicanalista em Vitória e Vila Velha (ES)',
- sobre:'Sobre mim · Eduarda Manzoli',
- blog:'Escritos · Eduarda Manzoli',
- post:'Escritos · Eduarda Manzoli',
- contato:'Contato · Eduarda Manzoli',
- privacidade:'Política de Privacidade · Eduarda Manzoli',
- login:'Área restrita · Eduarda Manzoli'
-};
-var PUBLICAS=['home','sobre','blog','post','contato','privacidade'];
-function aplicarRota(){
-  silencioso=true;
-  var h=(location.hash||'').replace(/^#\/?/,'') || 'home';
-  if(PUBLICAS.indexOf(h)>=0){ h==='post'?abrirPost(postAtual):go(h); }
-  else if(h==='login'){ show('s-login'); }
-  else if(document.getElementById('c-'+h)){ cms(h); }
-  else { go('home'); }
-  silencioso=false;
-  document.title = TITULOS[h] || 'Painel · Eduarda Manzoli';
-}
+function aplicarRota(){silencioso=true;
+  var h=(location.hash||'').replace(/^#\/?/,'')||'home';
+  if(h==='post')abrirPost(postAtual); else if(document.getElementById('p-'+h))go(h); else go('home');
+  silencioso=false;}
 window.addEventListener('hashchange',aplicarRota);
-cms('painel');
+function dclose(){document.getElementById('drawer').classList.remove('open')}
+var tmr;
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(tmr);tmr=setTimeout(function(){t.classList.remove('on')},3200);}
+function enviarForm(btn){var box=btn.closest('.paper')||btn.parentNode;
+  box.innerHTML='<div class="form-ok"><div class="ic">\u2713</div><h3>Mensagem enviada</h3><p>Obrigada por escrever. Respondo pessoalmente, normalmente em até 24 horas.</p><a class="btn btn-ghost btn-sm" href="https://wa.me/message/ZA5AP5UJ54FTK1" target="_blank" rel="noopener">Falar agora no WhatsApp</a></div>';}
+window.addEventListener('scroll',function(){document.getElementById('hdr').classList.toggle('solid',window.scrollY>20)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')dclose()});
 aplicarRota();
 document.getElementById('ano').textContent=new Date().getFullYear();
 

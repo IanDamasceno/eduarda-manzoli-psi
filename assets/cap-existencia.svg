@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<defs>
+ <filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/>
+   <feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer></filter>
+ 
+</defs>
+<rect width="800" height="500" fill="#F2F0EA"/>
+
+<line x1="120" y1="392" x2="680" y2="392" stroke="#2A3F94" stroke-width="3"/>
+<path d="M400,392 L360,470 L440,470 Z" fill="#2A3F94"/>
+<g transform="rotate(-9 400 392)">
+ <line x1="150" y1="330" x2="650" y2="330" stroke="#3A5CC4" stroke-width="7" stroke-linecap="round"/>
+ <circle cx="185" cy="285" r="46" fill="#3A5CC4" opacity=".85"/>
+ <rect x="565" y="252" width="76" height="76" fill="#2A3F94" opacity=".85"/>
+</g>
+<rect width="800" height="500" filter="url(#g)" opacity=".55" style="mix-blend-mode:multiply"/>
+</svg>
