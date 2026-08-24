@@ -55,7 +55,9 @@
 
     el('hdr').innerHTML =
       '<div class="wrap">' +
-      '<div class="logo" onclick="EM.go(\'home\')"><b><em>' + esc(h.logoTitulo) + '</em></b><small>' + esc(h.logoSub) + '</small></div>' +
+      '<div class="logo" onclick="EM.go(\'home\')">' +
+      '<img class="logo-mark" src="assets/logo.svg" alt="" width="52" height="42">' +
+      '<span class="logo-txt"><b><em>' + esc(h.logoTitulo) + '</em></b><small>' + esc(h.logoSub) + '</small></span></div>' +
       '<nav class="nav">' + menu + '</nav>' +
       '<button class="btn btn-primary btn-sm" onclick="EM.go(\'contato\')">' + esc(h.botao) + '</button>' +
       '<button class="burger" onclick="document.getElementById(\'drawer\').classList.add(\'open\')">☰</button>' +
@@ -63,7 +65,9 @@
 
     el('drawer').innerHTML =
       '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem">' +
-      '<div class="logo"><b><em>' + esc(h.logoTitulo) + '</em></b><small>' + esc(h.logoSub) + '</small></div>' +
+      '<div class="logo">' +
+      '<img class="logo-mark" src="assets/logo.svg" alt="" width="52" height="42">' +
+      '<span class="logo-txt"><b><em>' + esc(h.logoTitulo) + '</em></b><small>' + esc(h.logoSub) + '</small></span></div>' +
       '<button class="burger" onclick="EM.dclose()">✕</button></div>' +
       (h.menu || []).map(function (m) {
         var pg = String(m.destino || 'home').split('#')[0];
@@ -380,6 +384,7 @@
     var r = C.rodape || {}, g = C.geral || {}, h = C.cabecalho || {};
     el('ftr').innerHTML =
       '<div class="halftone" style="opacity:.06"></div><div class="wrap" style="position:relative;z-index:2"><div class="ftr-grid"><div>' +
+      '<img src="assets/logo-claro.svg" alt="" width="66" height="53" style="height:54px;width:auto;display:block;margin-bottom:1.1rem">' +
       '<h3 style="font-size:1.6rem;margin-bottom:.3rem;font-style:italic">' + esc(g.nome) + '</h3>' +
       '<p style="font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem">' + esc(g.profissao) + ' · CRP ' + esc(g.crp) + '</p>' +
       '<p style="max-width:24rem">' + rich(r.descricao) + '</p></div>' +
