@@ -63,7 +63,7 @@
 
     el('drawer').innerHTML =
       '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem">' +
-      '<div class="logo"><b><em>' + esc(h.logoTitulo) + '</em></b><small>Psicanálise</small></div>' +
+      '<div class="logo"><b><em>' + esc(h.logoTitulo) + '</em></b><small>' + esc(h.logoSub) + '</small></div>' +
       '<button class="burger" onclick="EM.dclose()">✕</button></div>' +
       (h.menu || []).map(function (m) {
         var pg = String(m.destino || 'home').split('#')[0];
@@ -344,6 +344,9 @@
       '<p style="font-size:.76rem;text-align:center;margin-top:.9rem">' + rich(c.avisoSigilo) + '</p></div><aside>' +
       (g.whatsapp ? '<div class="side-card"><h4>WhatsApp</h4><p style="font-size:.87rem;margin-bottom:.9rem">Se preferir, me chame direto.</p>' +
         '<a class="btn btn-primary btn-sm" style="width:100%;justify-content:center" href="' + esc(g.whatsapp) + '" target="_blank" rel="noopener">Abrir conversa</a></div>' : '') +
+      (g.email ? '<div class="side-card"><h4>E-mail</h4>' +
+        '<a href="mailto:' + esc(g.email) + '" style="font-family:var(--serif);font-size:1rem;color:var(--cobalt);word-break:break-word">' + esc(g.email) + '</a>' +
+        '<p style="font-size:.85rem;margin-top:.4rem">Para escrever com calma, quando preferir.</p></div>' : '') +
       (g.instagram ? '<div class="side-card"><h4>Instagram</h4>' +
         '<a href="' + esc(g.instagramUrl) + '" target="_blank" rel="noopener" style="font-family:var(--serif);font-size:1.05rem;color:var(--cobalt)">' + esc(g.instagram) + '</a>' +
         '<p style="font-size:.85rem;margin-top:.4rem">Atendimentos e informações via direct.</p></div>' : '') +
@@ -385,8 +388,11 @@
         return '<a onclick="EM.go(\'' + esc(m.destino) + '\')">' + esc(m.rotulo) + '</a>';
       }).join('<br>') + '</p></div>' +
       '<div><h3 style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;font-family:var(--sans);font-weight:500;color:var(--sky)">' + esc(r.tituloContato) + '</h3><p>' +
-      (g.instagram ? '<a href="' + esc(g.instagramUrl) + '" target="_blank" rel="noopener">' + esc(g.instagram) + '</a><br>' : '') +
-      (g.whatsapp ? '<a href="' + esc(g.whatsapp) + '" target="_blank" rel="noopener">WhatsApp</a>' : '') +
+      [
+        g.instagram ? '<a href="' + esc(g.instagramUrl) + '" target="_blank" rel="noopener">' + esc(g.instagram) + '</a>' : '',
+        g.whatsapp ? '<a href="' + esc(g.whatsapp) + '" target="_blank" rel="noopener">WhatsApp</a>' : '',
+        g.email ? '<a href="mailto:' + esc(g.email) + '">' + esc(g.email) + '</a>' : ''
+      ].filter(Boolean).join('<br>') +
       '</p></div></div>' +
       '<div class="ftr-bot"><span>© <span id="ano"></span> ' + esc(g.nome) + ' · CRP ' + esc(g.crp) + ' · ' + esc(r.assinatura) + '</span>' +
       '<a onclick="EM.go(\'privacidade\')" style="cursor:pointer">Política de Privacidade</a></div></div>';
