@@ -246,14 +246,22 @@
         '<button class="btn btn-light" onclick="EM.go(\'contato\')">' + esc(o.btn1) + '</button>' +
         '<button class="btn btn-onblue" onclick="EM.go(\'contato\')">' + esc(o.btn2) + '</button></div></div></section>';
 
+    /* Sem nenhuma avaliacao aprovada o bloco vira convite: e por ele que
+       chegam as primeiras. Com avaliacoes, mostra os cartoes. */
     var av = secao('blocoAvaliacoes'), LA = aprovadas();
-    if (on(av.ativo) && LA.length)
+    if (on(av.ativo))
       s += '<section class="sec"><div class="wrap">' +
         '<div class="sec-head" style="display:flex;justify-content:space-between;align-items:flex-end;max-width:none;gap:2rem;flex-wrap:wrap">' +
         '<div style="max-width:34rem"><span class="eyebrow">' + esc(av.eyebrow) + '</span>' +
-        '<h2 style="margin:.9rem 0 .7rem">' + rich(av.titulo) + '</h2><p>' + rich(av.texto) + '</p></div>' +
-        '<button class="btn btn-ghost btn-sm" onclick="EM.go(\'avaliacoes\')">' + esc(av.botao) + '</button></div>' +
-        '<div class="depo-grid">' + LA.slice(0, parseInt(av.quantos, 10) || 3).map(depoCard).join('') + '</div></div></section>';
+        '<h2 style="margin:.9rem 0 .7rem">' + rich(av.titulo) + '</h2>' +
+        (LA.length ? '<p>' + rich(av.texto) + '</p>' : '') + '</div>' +
+        (LA.length ? '<button class="btn btn-ghost btn-sm" onclick="EM.go(\'avaliacoes\')">' + esc(av.botao) + '</button>' : '') +
+        '</div>' +
+        (LA.length
+          ? '<div class="depo-grid">' + LA.slice(0, parseInt(av.quantos, 10) || 3).map(depoCard).join('') + '</div>'
+          : '<div class="depo-vazio"><p style="max-width:44ch;margin:0 auto 1.4rem">' + rich(av.convite) + '</p>' +
+            '<button class="btn btn-primary" onclick="EM.go(\'avaliacoes\')">' + esc(av.botaoConvite || 'Deixar a minha avaliação') + '</button></div>') +
+        '</div></section>';
 
     var e = C.escritos || {};
     if (on(e.ativo))

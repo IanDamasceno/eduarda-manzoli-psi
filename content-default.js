@@ -170,6 +170,8 @@ window.DEFAULT_CONTENT={
     "titulo": "O que dizem sobre\no processo",
     "texto": "Pacientes que quiseram deixar registrado algo do próprio percurso. Publicado sempre com autorização e sem nada que identifique quem escreveu.",
     "botao": "Ler todas as avaliações",
+    "convite": "Ainda não há avaliações publicadas aqui. Se fazemos ou fizemos análise juntos, a sua pode ser a primeira.",
+    "botaoConvite": "Deixar a minha avaliação",
     "quantos": 3
   },
   "escritos": {
