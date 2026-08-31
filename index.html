@@ -241,6 +241,21 @@ section{position:relative}
 .side-card li:last-child{border:0}
 .side-card li:hover{color:var(--cobalt)}
 
+/* avaliacoes */
+.depo{background:var(--card);border:1px solid var(--line);padding:2.1rem 1.9rem 1.7rem;position:relative;display:flex;flex-direction:column;transition:.25s}
+.depo:hover{border-color:var(--steel);box-shadow:var(--sh-sm)}
+.depo::before{content:"\201C";position:absolute;top:.35rem;left:1.4rem;font-family:var(--serif);font-size:3.4rem;line-height:1;color:var(--sky)}
+.depo p{font-family:var(--serif);font-size:1.02rem;line-height:1.78;color:#2C3448;position:relative;z-index:2;flex:1;margin-bottom:1.4rem;white-space:pre-wrap}
+.depo .quem{border-top:1px solid var(--line);padding-top:.95rem}
+.depo .quem b{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.05rem;color:var(--royal)}
+.depo .quem small{display:block;margin-top:.2rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:stretch}
+.depo-vazio{border:1px dashed var(--steel);background:var(--paper2);padding:2.8rem 1.6rem;text-align:center;color:var(--muted);font-size:.95rem}
+.consent{display:flex;gap:.7rem;align-items:flex-start;margin:.2rem 0 1.1rem;font-size:.83rem;color:var(--muted);line-height:1.6;cursor:pointer}
+.consent input{width:17px;height:17px;flex:none;margin-top:.15rem;accent-color:var(--cobalt);cursor:pointer}
+@media(max-width:960px){.depo-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.depo-grid{grid-template-columns:1fr}}
+
 /* artigo */
 .article{max-width:700px;margin:0 auto}
 .article p{font-family:var(--serif);font-size:1.14rem;line-height:1.86;color:#2C3448;margin-bottom:1.5rem}
@@ -548,6 +563,7 @@ h1,h2,h3{text-wrap:balance}
   <div class="sub" id="p-sobre"></div>
   <div class="sub" id="p-blog"></div>
   <div class="sub" id="p-post"></div>
+  <div class="sub" id="p-avaliacoes"></div>
   <div class="sub" id="p-contato"></div>
   <div class="sub" id="p-privacidade"></div>
 

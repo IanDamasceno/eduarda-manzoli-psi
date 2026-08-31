@@ -16,8 +16,9 @@ Os dois são estáticos, sem build, e compartilham o mesmo **Blob store** da Ver
 ## Como o conteúdo circula
 
 ```
-Painel  --PUT /api/content-->   Blob (cms/content.json)  --GET /api/content-->   Site
-Site    --POST /api/mensagens-> Blob (inbox/*.json)      --GET /api/mensagens--> Painel
+Painel  --PUT /api/content-->    Blob (cms/content.json)   --GET /api/content-->    Site
+Site    --POST /api/mensagens->  Blob (inbox/*.json)       --GET /api/mensagens-->  Painel
+Site    --POST /api/avaliacoes-> Blob (avaliacoes/*.json)  --GET /api/avaliacoes--> Painel
 ```
 
 O site lê `cms/content.json` a cada carregamento. Se a API estiver fora do ar,
@@ -45,6 +46,7 @@ app.js                monta todas as seções a partir do conteúdo
 content-default.js    conteúdo de segurança, usado se a API falhar
 api/content.js        GET do conteúdo publicado
 api/mensagens.js      POST do formulário de contato
+api/avaliacoes.js     POST da avaliação deixada pelo paciente
 assets/               imagens que vieram com o site
 ```
 
@@ -56,10 +58,28 @@ assets/               imagens que vieram com o site
 | `#/sobre` | História, formação e onde atende |
 | `#/blog` | Escritos, com filtro por tema e paginação |
 | `#/post/<id>` | Leitura de cada texto |
+| `#/avaliacoes` | Avaliações publicadas e formulário para deixar a sua |
 | `#/contato` | Formulário, WhatsApp e locais de atendimento |
 | `#/privacidade` | Política de privacidade e sigilo |
 
 O painel não é acessível a partir do site: não há link para ele em lugar nenhum.
+A rota de avaliações só entra no menu depois de ser adicionada em
+Aparência → Cabeçalho, no painel.
+
+## Avaliações
+
+O paciente escreve pela própria página; a avaliação cai em `avaliacoes/` como
+pendente e **não aparece no site**. A Eduarda lê no painel, pode ajustar o texto,
+aprova, e o depoimento entra em `avaliacoes` dentro de `cms/content.json` — indo
+ao ar no mesmo "Salvar e publicar" do resto do conteúdo.
+
+Nome completo e contato ficam só no painel: o site recebe apenas a assinatura que
+o paciente escolheu (primeiro nome ou "Paciente"), a modalidade, o tempo de
+acompanhamento e o texto. Sem nota, sem estrelas.
+
+O CFP restringe o uso de depoimento de paciente na divulgação de serviço
+psicológico. A seção da home e a página têm chave de liga/desliga no painel, para
+sair do ar sem mexer em código.
 
 ## Como rodar localmente
 

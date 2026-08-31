@@ -100,6 +100,11 @@
     return '<div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">' +
       '<label>Deixe em branco<input name="website" tabindex="-1" autocomplete="off"></label></div>';
   }
+  /* select em que o valor guardado e diferente do que se le na tela */
+  function selectValor(label, name, ops) {
+    return '<div class="field"><label>' + esc(label) + '</label><select name="' + name + '">' +
+      ops.map(function (o) { return '<option value="' + esc(o[0]) + '">' + esc(o[1]) + '</option>'; }).join('') + '</select></div>';
+  }
   function selectForm(label, name, ops) {
     return '<div class="field"><label>' + esc(label) + '</label><select name="' + name + '">' +
       ops.map(function (o) { return '<option>' + esc(o) + '</option>'; }).join('') + '</select></div>';
@@ -111,6 +116,64 @@
       selectForm('Atendimento para', 'publico', ['Adulto', 'Adolescente', 'Criança']) +
       campoForm('O que te traz até aqui?', 'mensagem', 'Pode escrever com as suas palavras.', 'textarea') + honeypot() +
       '<button class="btn btn-primary" style="width:100%" onclick="EM.enviarForm(this)">Enviar mensagem</button>';
+  }
+
+  /* ---------- avaliacoes ---------- */
+  /* Enquanto o painel nao salvar uma vez, estas secoes ainda nao existem no
+     conteudo publicado. Nesse meio-tempo valem os textos de content-default. */
+  function secao(chave) {
+    return C[chave] || (window.DEFAULT_CONTENT || {})[chave] || {};
+  }
+  /* So o que a pessoa autorizou: assinatura, contexto e o texto.
+     Nome completo e contato ficam no painel e nunca chegam ate aqui. */
+  function aprovadas() {
+    var L = (C.avaliacoes || []).slice();
+    return L.sort(function (a, b) { return (b.destaque ? 1 : 0) - (a.destaque ? 1 : 0); });
+  }
+  function naoDito(v) {
+    return v && v !== 'Prefiro não dizer';
+  }
+  function depoCard(a) {
+    var quem = [a.contexto, a.tempo].filter(naoDito).join(' · ');
+    return '<div class="depo"><p>' + esc(a.texto) + '</p>' +
+      '<div class="quem"><b>' + esc(a.assinatura || 'Paciente') + '</b>' +
+      (quem ? '<small>' + esc(quem) + '</small>' : '') + '</div></div>';
+  }
+  function formAvaliacao() {
+    var v = secao('paginaAvaliacoes');
+    return campoForm('Seu nome', 'nome', 'Fica só comigo, não aparece no site') +
+      campoForm('E-mail ou WhatsApp', 'contato', 'Opcional, também não aparece no site') +
+      selectValor('Como você quer aparecer', 'exibirComo', [
+        ['primeiro-nome', 'Com o meu primeiro nome'],
+        ['anonimo', 'Como anônimo']
+      ]) +
+      '<div class="g2 tight">' +
+      selectForm('Como foi o atendimento', 'contexto', ['Atendimento online', 'Presencial em Vitória', 'Presencial em Vila Velha', 'Prefiro não dizer']) +
+      selectForm('Tempo de acompanhamento', 'tempo', ['Menos de 6 meses', 'De 6 meses a 1 ano', 'De 1 a 2 anos', 'Mais de 2 anos', 'Prefiro não dizer']) +
+      '</div>' +
+      campoForm('A sua avaliação', 'texto', 'Escreva com as suas palavras. Não precisa organizar nada antes.', 'textarea') +
+      honeypot() +
+      '<label class="consent"><input type="checkbox" name="consentimento">' +
+      '<span>Autorizo a publicação deste texto no site, sem o meu nome completo.</span></label>' +
+      '<button class="btn btn-primary" style="width:100%" onclick="EM.enviarAvaliacao(this)">' + esc(v.botaoEnviar || 'Enviar avaliação') + '</button>' +
+      '<p style="font-size:.76rem;text-align:center;margin-top:.9rem">' + rich(v.avisoSigilo) + '</p>';
+  }
+  function renderAvaliacoes() {
+    var v = secao('paginaAvaliacoes'), L = aprovadas();
+    el('p-avaliacoes').innerHTML =
+      '<section class="sec" style="padding-bottom:0"><div class="wrap">' +
+      '<div class="sec-head center"><span class="eyebrow">' + esc(v.eyebrow) + '</span>' +
+      '<h1 style="margin:.9rem 0 1.1rem;font-size:clamp(2.1rem,4.4vw,3.2rem)">' + rich(v.titulo) + '</h1>' +
+      '<p>' + rich(v.texto) + '</p></div>' +
+      (L.length ? '<div class="depo-grid">' + L.map(depoCard).join('') + '</div>'
+        : '<div class="depo-vazio">' + rich(v.vazio) + '</div>') +
+      '</div></section>' +
+      '<section class="sec"><div class="wrap" style="max-width:660px">' +
+      '<div class="sec-head center" style="margin-bottom:2rem">' +
+      '<h2 style="font-size:clamp(1.6rem,3vw,2.1rem)">' + rich(v.convite) + '</h2>' +
+      '<p style="margin-top:.9rem">' + rich(v.conviteTexto) + '</p></div>' +
+      '<div class="paper" style="padding:2rem">' + formAvaliacao() + '</div>' +
+      '</div></section>';
   }
 
   /* ---------- home ---------- */
@@ -182,6 +245,15 @@
         '<div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:flex-end">' +
         '<button class="btn btn-light" onclick="EM.go(\'contato\')">' + esc(o.btn1) + '</button>' +
         '<button class="btn btn-onblue" onclick="EM.go(\'contato\')">' + esc(o.btn2) + '</button></div></div></section>';
+
+    var av = secao('blocoAvaliacoes'), LA = aprovadas();
+    if (on(av.ativo) && LA.length)
+      s += '<section class="sec"><div class="wrap">' +
+        '<div class="sec-head" style="display:flex;justify-content:space-between;align-items:flex-end;max-width:none;gap:2rem;flex-wrap:wrap">' +
+        '<div style="max-width:34rem"><span class="eyebrow">' + esc(av.eyebrow) + '</span>' +
+        '<h2 style="margin:.9rem 0 .7rem">' + rich(av.titulo) + '</h2><p>' + rich(av.texto) + '</p></div>' +
+        '<button class="btn btn-ghost btn-sm" onclick="EM.go(\'avaliacoes\')">' + esc(av.botao) + '</button></div>' +
+        '<div class="depo-grid">' + LA.slice(0, parseInt(av.quantos, 10) || 3).map(depoCard).join('') + '</div></div></section>';
 
     var e = C.escritos || {};
     if (on(e.ativo))
@@ -409,7 +481,8 @@
     var n = (C.geral || {}).nome || 'Eduarda Manzoli';
     var T = {
       home: (C.geral || {}).seoTitulo || n, sobre: 'Sobre mim · ' + n, blog: 'Escritos · ' + n,
-      post: 'Escritos · ' + n, contato: 'Contato · ' + n, privacidade: 'Política de Privacidade · ' + n
+      post: 'Escritos · ' + n, avaliacoes: 'Avaliações · ' + n,
+      contato: 'Contato · ' + n, privacidade: 'Política de Privacidade · ' + n
     };
     return T[p] || T.home;
   }
@@ -474,6 +547,29 @@
     });
   }
 
+  function enviarAvaliacao(btn) {
+    var box = btn.closest('.paper') || btn.parentNode;
+    var dados = {};
+    box.querySelectorAll('[name]').forEach(function (i) {
+      dados[i.name] = i.type === 'checkbox' ? i.checked : i.value.trim();
+    });
+    if (!dados.nome) { toast('Escreva o seu nome, mesmo que ele não vá para o site.'); return; }
+    if (!dados.texto || dados.texto.length < 40) { toast('Escreva um pouco mais sobre a sua experiência.'); return; }
+    if (!dados.consentimento) { toast('Marque a autorização para que eu possa publicar.'); return; }
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    fetch('/api/avaliacoes', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dados)
+    }).then(function (r) {
+      if (!r.ok) throw new Error('falhou');
+      box.innerHTML = '<div class="form-ok"><div class="ic">✓</div><h3>Obrigada por escrever</h3>' +
+        '<p>Vou ler com calma. A sua avaliação só aparece no site depois disso, e você pode pedir para tirá-la quando quiser.</p>' +
+        '<button class="btn btn-ghost btn-sm" onclick="EM.go(\'home\')">Voltar para o início</button></div>';
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = secao('paginaAvaliacoes').botaoEnviar || 'Enviar avaliação';
+      toast('Não consegui enviar agora. Tente daqui a pouco, por favor.');
+    });
+  }
+
   /* ---------- boot ---------- */
   function aplicarSEO() {
     var g = C.geral || {};
@@ -484,7 +580,8 @@
   }
   function desenhar() {
     aplicarSEO();
-    renderHeader(); renderHome(); renderSobre(); renderBlogShell(); renderContato(); renderPrivacidade(); renderFooter();
+    renderHeader(); renderHome(); renderSobre(); renderBlogShell(); renderAvaliacoes();
+    renderContato(); renderPrivacidade(); renderFooter();
     aplicarRota();
     document.body.classList.add('pronto');
   }
@@ -504,7 +601,8 @@
       renderBlog(); if (!elm) go('blog');
     },
     irPag: function (n) { PAG = n; renderBlog(); el('p-blog').scrollIntoView({ behavior: 'smooth' }); },
-    dclose: dclose, toast: toast, enviarForm: enviarForm, compartilhar: compartilhar
+    dclose: dclose, toast: toast, enviarForm: enviarForm, enviarAvaliacao: enviarAvaliacao,
+    compartilhar: compartilhar
   };
 
   window.addEventListener('hashchange', aplicarRota);

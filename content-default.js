@@ -164,6 +164,14 @@ window.DEFAULT_CONTENT={
     "btn1": "Agendar online",
     "btn2": "Ver endereços"
   },
+  "blocoAvaliacoes": {
+    "ativo": true,
+    "eyebrow": "Quem passou por aqui",
+    "titulo": "O que dizem sobre\no processo",
+    "texto": "Pacientes que quiseram deixar registrado algo do próprio percurso. Publicado sempre com autorização e sem nada que identifique quem escreveu.",
+    "botao": "Ler todas as avaliações",
+    "quantos": 3
+  },
   "escritos": {
     "ativo": true,
     "eyebrow": "Escritos",
@@ -297,6 +305,16 @@ window.DEFAULT_CONTENT={
     "notaLocais": "Endereços completos enviados após o agendamento.",
     "foto": "assets/contato.jpg"
   },
+  "paginaAvaliacoes": {
+    "eyebrow": "Avaliações",
+    "titulo": "O que dizem sobre o processo",
+    "texto": "Cada análise é única, e nenhum relato aqui promete o mesmo caminho para você. São pessoas contando, com as palavras delas, o que a experiência de se escutar significou.",
+    "vazio": "Ainda não há avaliações publicadas. Se você já fez análise comigo, o espaço abaixo é seu.",
+    "convite": "Deixe a sua avaliação",
+    "conviteTexto": "Se fazemos ou fizemos análise juntos, você pode escrever aqui. Nada é publicado automaticamente: eu leio cada texto antes, e só vai ao ar o que você autorizar.",
+    "botaoEnviar": "Enviar avaliação",
+    "avisoSigilo": "Seu nome completo e seu contato ficam só comigo, nunca aparecem no site. Você pode pedir a remoção da sua avaliação quando quiser."
+  },
   "paginaPrivacidade": {
     "titulo": "Política de Privacidade\ne Sigilo",
     "atualizacao": "Última atualização: agosto de 2026",
@@ -314,6 +332,14 @@ window.DEFAULT_CONTENT={
         "ps": [
           "Os formulários de contato coletam apenas nome, e-mail, telefone e a mensagem que você escolher escrever. Esses dados são utilizados exclusivamente para responder ao seu contato e não são compartilhados, vendidos ou cedidos a terceiros.",
           "O site não utiliza cookies de rastreamento nem armazena dados sensíveis no seu navegador."
+        ]
+      },
+      {
+        "h": "Avaliações deixadas no site",
+        "ps": [
+          "A página de avaliações é opcional e só recebe textos de quem escolhe escrever. Ao enviar, você autoriza a publicação do depoimento; nada vai ao ar antes de eu ler e aprovar.",
+          "Seu nome completo e seu contato ficam guardados apenas no painel do site, para que eu saiba quem escreveu, e nunca são publicados. No site aparece só a assinatura que você escolheu: o seu primeiro nome ou a palavra Paciente.",
+          "Você pode pedir a remoção da sua avaliação a qualquer momento, pelo WhatsApp ou pelo formulário de contato, sem precisar justificar."
         ]
       },
       {
@@ -336,6 +362,7 @@ window.DEFAULT_CONTENT={
       }
     ]
   },
+  "avaliacoes": [],
   "temas": [
     "Psicanálise",
     "Escuta",
