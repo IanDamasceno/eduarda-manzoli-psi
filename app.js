@@ -7,6 +7,10 @@
   var C = null;
   var FILTRO = 'Todos', PAG = 1, PORPAG = 6, postAtual = null, silencioso = true;
 
+  /* Endereco da API. Fica na Vercel; o site fica na Hostinger.
+     O valor e definido em index.html (window.API_BASE). */
+  var API = (window.API_BASE || '').replace(/\/$/, '');
+
   /* ---------- utilidades ---------- */
   function esc(s) {
     return String(s == null ? '' : s)
@@ -541,7 +545,7 @@
       toast('Preencha seu nome, um contato e a mensagem.'); return;
     }
     btn.disabled = true; btn.textContent = 'Enviando...';
-    fetch('/api/mensagens', {
+    fetch(API + '/api/mensagens', {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dados)
     }).then(function (r) {
       if (!r.ok) throw new Error('falhou');
@@ -565,7 +569,7 @@
     if (!dados.texto || dados.texto.length < 40) { toast('Escreva um pouco mais sobre a sua experiência.'); return; }
     if (!dados.consentimento) { toast('Marque a autorização para que eu possa publicar.'); return; }
     btn.disabled = true; btn.textContent = 'Enviando...';
-    fetch('/api/avaliacoes', {
+    fetch(API + '/api/avaliacoes', {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dados)
     }).then(function (r) {
       if (!r.ok) throw new Error('falhou');
@@ -595,7 +599,7 @@
   }
 
   function boot() {
-    fetch('/api/content', { cache: 'no-store' })
+    fetch(API + '/api/content', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
       .then(function (d) { C = d && d.geral ? d : window.DEFAULT_CONTENT; })
       .catch(function () { C = window.DEFAULT_CONTENT; })

@@ -1,0 +1,50 @@
+# Configuracao do site na Hostinger.
+# Substitui o que o vercel.json fazia na Vercel e protege os arquivos
+# do repositorio que nao devem ficar acessiveis pelo navegador.
+
+# ---- Arquivos que vem no repositorio mas nao sao do site ----
+# A pasta api/ so roda na Vercel. Aqui ela seria servida como texto puro,
+# entao fica bloqueada.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^api/ - [F,L]
+</IfModule>
+
+<FilesMatch "^(package\.json|package-lock\.json|vercel\.json|README\.md|\.gitignore)$">
+  Require all denied
+</FilesMatch>
+
+# ---- Cabecalhos de seguranca em tudo ----
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ---- Cache longo para os arquivos da pasta assets ----
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|css|js)$">
+    <If "%{REQUEST_URI} =~ m#^/assets/#">
+      Header set Cache-Control "public, max-age=31536000, immutable"
+    </If>
+  </FilesMatch>
+</IfModule>
+
+# ---- Painel administrativo (continua na Vercel) ----
+<IfModule mod_rewrite.c>
+  RewriteRule ^admin/?$ https://eduarda-manzoli-admin.vercel.app [R=302,L]
+  RewriteRule ^admin/(.*)$ https://eduarda-manzoli-admin.vercel.app/$1 [R=302,L]
+</IfModule>
+
+# ---- URLs limpas: /pagina abre /pagina.html (equivale ao cleanUrls) ----
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# ---- Compressao ----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+ErrorDocument 404 /index.html

@@ -1,4 +1,5 @@
 import { put } from '@vercel/blob';
+import { cors } from './_cors.js';
 
 const LIM = new Map(); // limite simples por IP, na memoria da instancia
 
@@ -15,6 +16,7 @@ function limpa(v, max) {
 }
 
 export default async function handler(req, res) {
+  if (cors(req, res)) return;
   if (req.method !== 'POST') return res.status(405).json({ erro: 'Metodo nao permitido' });
 
   const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'desconhecido';
